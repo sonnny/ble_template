@@ -9,12 +9,15 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 add_executable(pico_counter
-    main.c)
+  main.c
+  )
 target_link_libraries(pico_counter
   pico_stdlib
+  pico_multicore
   pico_btstack_ble
   pico_btstack_cyw43
   pico_cyw43_arch_none)
+add_compile_options(-O2)
 pico_enable_stdio_uart(pico_counter 1)
 target_include_directories(pico_counter PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}

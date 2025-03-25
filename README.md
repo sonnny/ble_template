@@ -5,6 +5,8 @@ just minimum files to get bluetooth running on picow
 
 demo just receiving data from android phone to picow
 
+experimenting with protothreads
+
 
 
 git clone https://github.com/sonnny/ble_template
