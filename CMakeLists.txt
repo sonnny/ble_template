@@ -9,7 +9,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 add_executable(pico_counter
-    pico_demo_gatt_service.c)
+    main.c)
 target_link_libraries(pico_counter
   pico_stdlib
   pico_btstack_ble
