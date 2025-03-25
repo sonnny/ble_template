@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "pico/multicore.h"
-#include "pt_cornell_rp2040_v1_3.h"
-#include "ble.h"
+#include "thread/pt_cornell_rp2040_v1_3.h"
+#include "ble/ble.h"
 
 char ble_data[80];
 
@@ -30,8 +30,6 @@ void main(void){
 
 stdio_init_all();
 sleep_ms(500);
-gpio_init(15);
-gpio_set_function(15, GPIO_OUT);
 multicore_launch_core1(bt_main);
 pt_add_thread(ble_thread);
 pt_add_thread(blink_thread);

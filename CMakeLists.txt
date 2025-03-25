@@ -19,8 +19,9 @@ target_link_libraries(pico_counter
   pico_cyw43_arch_none)
 add_compile_options(-O2)
 pico_enable_stdio_uart(pico_counter 1)
-target_include_directories(pico_counter PRIVATE
-    ${CMAKE_CURRENT_LIST_DIR}
-    )
-pico_btstack_make_gatt_header(pico_counter PRIVATE "${CMAKE_CURRENT_LIST_DIR}/pico_demo_gatt_service.gatt")
+target_include_directories(pico_counter 
+  PUBLIC
+    thread
+    ble)
+pico_btstack_make_gatt_header(pico_counter PRIVATE "${CMAKE_CURRENT_LIST_DIR}/ble/pico_demo_gatt_service.gatt")
 pico_add_extra_outputs(pico_counter)
